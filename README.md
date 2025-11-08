@@ -9,7 +9,7 @@ The credentials will be shared during the workshop, in person.
 
 SSH is running on port 2222.
 
-There will be a Visual Studio Code web interface running on HTTPS port 10443. You can optionally use your own VS Code installation on your laptop, if one is available, to connect remotely to the instance -- this might give you a better user experience.
+There will be a Visual Studio Code web interface running on HTTPS port 8443. You can optionally use your own VS Code installation on your laptop, if one is available, to connect remotely to the instance -- this might give you a better user experience.
 
 At the end of each section, you will find a solution proposal. This allows you to skip entire sections, while still being able to normally proceed with the following task.  
 
@@ -241,7 +241,7 @@ Links to relevant documentations:
 - [FRR](https://docs.frrouting.org/en/latest/zebra.html#standard-commands)
 - [SR Linux](https://documentation.nokia.com/srlinux/24-10/title/interfaces.html)
 
->[!TIP]SR Linux hints
+> **💡SR Linux hints**
 > <details>
 > <summary>Navigating the CLI</summary>
 >
@@ -275,8 +275,9 @@ Links to relevant documentations:
 >    - When the running configuration is changed, it is not saved to the disk yet. A **plus +** in the prompt marks an unsaved change in the running configuration compared to the startup configuration.
 >    - To save a running configuration in SR Linux, run the `save startup` command.
 > </details>
-    
->[!TIP]FRR Hints
+
+
+> **💡FRR hints**
 > <details>
 > <summary>FRR hints</summary>
 >
@@ -1592,7 +1593,7 @@ You can use the query builder to create various types of queries, such as filter
 Try to capture only a specific interface's operation state!
 
 
-You can also view a graph of the values, sort of like Grafana, but not with not as many bells and whistles! This shows that Prometheus stores the data, unlike gNMIc.
+You can also view a graph of the values, sort of like Grafana, but not with as many bells and whistles! This shows that Prometheus stores the data, unlike gNMIc.
 
 ![Prometheus time series graph](./images/prom-graph.png)
 
