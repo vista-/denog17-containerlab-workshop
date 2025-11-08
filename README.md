@@ -9,7 +9,7 @@ The credentials will be shared during the workshop, in person.
 
 SSH is running on port 2222.
 
-There will be a Visual Studio Code web interface running on HTTPS port 10443. You can optionally use your own VS Code installation on your laptop, if one is available, to connect remotely to the instance -- this might give you a better user experience.
+There will be a Visual Studio Code web interface running on HTTPS port 8443. You can optionally use your own VS Code installation on your laptop, if one is available, to connect remotely to the instance -- this might give you a better user experience.
 
 At the end of each section, you will find a solution proposal. This allows you to skip entire sections, while still being able to normally proceed with the following task.  
 
