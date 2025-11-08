@@ -9,7 +9,7 @@ The credentials will be shared during the workshop, in person.
 
 SSH is running on port 2222.
 
-There will be a Visual Studio Code web interface running on HTTPS port 10443. You can optionally use your own VS Code installation on your laptop, if one is available, to connect remotely to the instance -- this might give you a better user experience.
+There will be a Visual Studio Code web interface running on HTTPS port 8443. You can optionally use your own VS Code installation on your laptop, if one is available, to connect remotely to the instance -- this might give you a better user experience.
 
 At the end of each section, you will find a solution proposal. This allows you to skip entire sections, while still being able to normally proceed with the following task.  
 
@@ -138,7 +138,7 @@ Armed with this topology diagram and the [Containerlab topology format definitio
 If you are already familiar with the Containerlab basics and want to skip over this exercise, you'll find the solution right here:
 
 <details>
-<summary>Task 1.3 solution</summary>
+<summary>✅ Task 1.3 solution</summary>
 
 ```yaml
 name: denog-workshop
@@ -241,7 +241,8 @@ Links to relevant documentations:
 - [FRR](https://docs.frrouting.org/en/latest/zebra.html#standard-commands)
 - [SR Linux](https://documentation.nokia.com/srlinux/24-10/title/interfaces.html)
 
->[!TIP]SR Linux hints
+> [!TIP]
+> SR Linux hints:
 > <details>
 > <summary>Navigating the CLI</summary>
 >
@@ -275,8 +276,10 @@ Links to relevant documentations:
 >    - When the running configuration is changed, it is not saved to the disk yet. A **plus +** in the prompt marks an unsaved change in the running configuration compared to the startup configuration.
 >    - To save a running configuration in SR Linux, run the `save startup` command.
 > </details>
-    
->[!TIP]FRR Hints
+
+
+> [!TIP]
+> FRR hints:
 > <details>
 > <summary>FRR hints</summary>
 >
@@ -448,7 +451,7 @@ Using the `-c` command-line flag in deploy and destroy commands removes the lab 
 Once you are done with adding the startup configuration files to the topology, it's time to redeploy again! Pinging should still work :)
 
 <details>
-<summary>Task 1.5 solution</summary>
+<summary>✅ Task 1.5 solution</summary>
 
 ```yaml
 name: denog-workshop
@@ -532,9 +535,11 @@ For this workshop the recommended container image to be used as clients is `ghcr
 These clients will have L3 connectivity for now to our switches, so we should make sure they get IP addresses on their data plane interfaces assigned during the topology deployment.
     
 The leaf switches should also have the IPs configured on their client-facing interfaces, again, all done in the startup config!
-    
+
+> ✅ **Task 2.1 Solution**
+>     
 > <details>
-> <summary>Task 2.1 topology solution</summary>
+> <summary>Topology solution</summary>
 > 
 > ```yaml
 > name: denog-workshop
@@ -574,7 +579,7 @@ The leaf switches should also have the IPs configured on their client-facing int
 > 
 > </details>
 > <details>
-> <summary>Task 2.1 SRL config solution | leaf1.cli</summary>
+> <summary>SRL config solution | leaf1.cli</summary>
 > 
 > ```
 > set / interface ethernet-1/1 admin-state enable
@@ -594,7 +599,7 @@ The leaf switches should also have the IPs configured on their client-facing int
 > </details>
 >
 > <details>
-> <summary>Task 2.1 FRR config solution | leaf2.conf</summary>
+> <summary>FRR config solution | leaf2.conf</summary>
 > 
 > ```
 >     interface eth1 
@@ -639,14 +644,16 @@ Let's configure eBGP! To get you started, here's the topology, but now with AS n
     
 Since we're going to be delving into a new topic with BGP, here are some helpful pointers to get you started!
 
-> [!TIP] Tips for both node types
-> Both:
+
+> [!TIP]
+> Tips for both nodes:
 > - You will need to configure eBGP on the link between leaf1 and leaf2
 > - To establish an eBGP session, you will need to configure: the router-id, the local AS number, the neighbor peer IP address, and the neighbor peer AS
 > - Generally, it's a good idea to use your loopback address as your router-id
 
-> [!TIP]SR Linux tips    
-> SR Linux:
+
+> [!TIP]
+> SR Linux tips:
 > - The BGP protocol is configured under the network-instance
 > - The address families on BGP are not implied - they must be configured under `afi-safi` in `protocols bgp`, by `admin-enable`-ing them  
 > - BGP peers and BGP peer groups inherit the AFI/SAFI settings of the overall BGP protocol
@@ -654,7 +661,8 @@ Since we're going to be delving into a new topic with BGP, here are some helpful
 > - SR Linux follows best practices and does not let you import routes via eBGP without a policy by default. There is knob to disable this behaviour for import and export as well.
 > - To redistribute a route into BGP in SR Linux, this must be done via a routing policy. Connected routes are called 'local' routes
     
-> [!TIP]FRR tips
+> [!TIP]
+> FRR tips:
 > - You will have to enable the BGP daemon in a separate configuration file, that you will have to bind mount as well
 > - By default, eBGP sessions require some form of policy in FRR. You can write a policy, or find the knob that lets you bypass this
 > - You should _redistribute_ routes into BGP to make them available for export
@@ -704,8 +712,12 @@ Paths: (1 available, best #1, table default)
 ```
 </details>
 
+
+
+> ✅ **Task 2.2 Solution**
+> 
 > <details>
-> <summary>Task 2.2 SR Linux config solution | leaf1.cli</summary>
+> <summary>SRL config solution | leaf1.cli</summary>
 > 
 > ```
 > set / interface ethernet-1/1 admin-state enable
@@ -744,7 +756,7 @@ Paths: (1 available, best #1, table default)
 > </details>
 >
 > <details>
-> <summary>Task 2.2 FRR config solution | leaf2.conf</summary>
+> <summary>FRR config solution | leaf2.conf</summary>
 > 
 > ```
 >     interface eth1 
@@ -968,7 +980,8 @@ Try to get the following outputs:
 >[!TIP]
 > You can find an excellent write-up of the [SR Linux CLI capabilities here.](https://learn.srlinux.dev/get-started/cli/)
 
-> **Task 2.5 Solutions**
+
+> ✅ **Task 2.5 Solutions**
 > <details>
 > <summary>YAML interface counters</summary>
 > 
@@ -1255,8 +1268,10 @@ $ gnmic -a clab-denog-workshop-leaf1 -u admin -p NokiaSrl1! --skip-verify -e jso
     
 Now, the CLI command is really, really long... So let's create a [client configuration](https://gnmic.openconfig.net/user_guide/configuration_intro/) in `~/.gnmic.yaml` with the username, password, encoding and skip-verify set!
 
+> ✅ **Task 3.1 Solution**
+> 
 > <details>
-> <summary>Task 3.1 gNMIC config solution | ~/.gnmic.yaml</summary>
+> <summary>gNMIC config solution | ~/.gnmic.yaml</summary>
 > 
 > ```
 > username: admin
@@ -1560,8 +1575,10 @@ Now, to write a Prometheus configuration that works with the gNMIc endpoint we j
 - Matching scrape interval of 5s
 - A single static scrape target, `<ID>.ws.ip.horse:9273` 
 
+> ✅ **Task 3.2 Solution**
+> 
 > <details>
-> <summary>Task 3.2 Prometheus config solution | prometheus.yaml</summary>
+> <summary>Prometheus config solution | prometheus.yaml</summary>
 > 
 > ```yaml
 > global:
@@ -1592,7 +1609,7 @@ You can use the query builder to create various types of queries, such as filter
 Try to capture only a specific interface's operation state!
 
 
-You can also view a graph of the values, sort of like Grafana, but not with not as many bells and whistles! This shows that Prometheus stores the data, unlike gNMIc.
+You can also view a graph of the values, sort of like Grafana, but not with as many bells and whistles! This shows that Prometheus stores the data, unlike gNMIc.
 
 ![Prometheus time series graph](./images/prom-graph.png)
 
@@ -1625,8 +1642,10 @@ Once you are done with putting the topology together, try to deploy it and conne
     
 ![Prometheus metrics in the deployed topology](./images/prom-deployed.png)
 
+> ✅ **Task 3.3 Solution**
+> 
 > <details>
-> <summary>Task 3.3 Container topology w/ telemetry solution | workshop.clab.yaml</summary>
+> <summary>Container topology w/ telemetry solution | workshop.clab.yaml</summary>
 > 
 > ```yaml
 > name: denog-workshop
