@@ -241,7 +241,8 @@ Links to relevant documentations:
 - [FRR](https://docs.frrouting.org/en/latest/zebra.html#standard-commands)
 - [SR Linux](https://documentation.nokia.com/srlinux/24-10/title/interfaces.html)
 
->[!TIP]SR Linux hints
+>[!TIP]
+> **SR Linux Hints**
 > <details>
 > <summary>Navigating the CLI</summary>
 >
@@ -276,9 +277,9 @@ Links to relevant documentations:
 >    - To save a running configuration in SR Linux, run the `save startup` command.
 > </details>
     
->[!TIP]FRR Hints
+>[!TIP]
 > <details>
-> <summary>FRR hints</summary>
+> <summary>FRR tips</summary>
 >
 >    - The FRR CLI is similar to IOS and EOS. You can enter the configuration mode with `conf t`
 >    - Changes are immediately applied with the FRR CLI. You can exit from the configuration mode with `end`
@@ -639,14 +640,14 @@ Let's configure eBGP! To get you started, here's the topology, but now with AS n
     
 Since we're going to be delving into a new topic with BGP, here are some helpful pointers to get you started!
 
-> [!TIP] Tips for both node types
-> Both:
+> [!TIP]
+> **Tips for both node types**
 > - You will need to configure eBGP on the link between leaf1 and leaf2
 > - To establish an eBGP session, you will need to configure: the router-id, the local AS number, the neighbor peer IP address, and the neighbor peer AS
 > - Generally, it's a good idea to use your loopback address as your router-id
 
-> [!TIP]SR Linux tips    
-> SR Linux:
+> [!TIP]    
+> **SR Linux tips**
 > - The BGP protocol is configured under the network-instance
 > - The address families on BGP are not implied - they must be configured under `afi-safi` in `protocols bgp`, by `admin-enable`-ing them  
 > - BGP peers and BGP peer groups inherit the AFI/SAFI settings of the overall BGP protocol
@@ -654,7 +655,8 @@ Since we're going to be delving into a new topic with BGP, here are some helpful
 > - SR Linux follows best practices and does not let you import routes via eBGP without a policy by default. There is knob to disable this behaviour for import and export as well.
 > - To redistribute a route into BGP in SR Linux, this must be done via a routing policy. Connected routes are called 'local' routes
     
-> [!TIP]FRR tips
+> [!TIP]
+> **FRR tips**
 > - You will have to enable the BGP daemon in a separate configuration file, that you will have to bind mount as well
 > - By default, eBGP sessions require some form of policy in FRR. You can write a policy, or find the knob that lets you bypass this
 > - You should _redistribute_ routes into BGP to make them available for export
