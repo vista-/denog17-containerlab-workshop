@@ -1733,7 +1733,7 @@ You should have a working visualization!
 
 This is how our final dashboard looks like after resizing the panes:
 
-![It's the final dashboard (toot toot tooooooot toot)]()
+![It's the final dashboard (toot toot tooooooot toot)](./images/grafana-final.png)
 
 **Don't forget to save your work!**
 You can do so with the little save icon up top. By clicking on the settings icon and selecting the JSON Model tab, you can even find a JSON-serialized version of the dashboard.
