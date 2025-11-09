@@ -117,7 +117,7 @@ For this workshop, we will use two freely downloadable NOSes that do not require
 - [FRR](https://docs.frrouting.org/projects/dev-guide/en/latest/index.html#)
 - [Nokia SR Linux](https://learn.srlinux.dev/)
 
-To get started, we will create a simple topology consisting of 2 nodes with a single link in between them.
+To get started, we will create a simple topology called `denog-workshop` consisting of 2 nodes with a single link in between them.
 
 `leaf1` will be an SR Linux node, running SR Linux 24.10, and `leaf2` will be FRR, running the latest stable version, 10.4.1, using the container image `quay.io/frrouting/frr`!
 
