@@ -1564,7 +1564,7 @@ The Prometheus docs can be found [here](https://prometheus.io/docs/introduction/
 
 Now, to write a Prometheus configuration that works with the gNMIc endpoint we just set up, we'll need to configure the following:
 - Matching scrape interval of 5s
-- A single static scrape target, `<ID>.ws.ip.horse:9273` 
+- A single static scrape target, `workshop-<ID>`, the hostname of the machine
 
 > <details>
 > <summary>Task 3.2 Prometheus config solution | prometheus.yaml</summary>
@@ -1578,7 +1578,7 @@ Now, to write a Prometheus configuration that works with the gNMIc endpoint we j
 > scrape_configs:
 >   - job_name: "gnmic"
 >     static_configs:
->       - targets: ["<ID>.ws.ip.horse:9273"]
+>       - targets: ["workshop-<ID>:9273"]
 > ```
     
 To start Prometheus, instead of installing it as any other application, we're going to be using Docker yet again!
