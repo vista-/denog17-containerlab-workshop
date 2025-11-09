@@ -188,6 +188,10 @@ The nodes are automatically assigned a management IPv4 and IPv6 address by Conta
 
 For most nodes, connecting to a node is just a matter of `ssh`-ing to the node's name:
 
+>[!TIP]
+> The default password configured for SR Linux deployed via Containerlab is `NokiaSrl1!`.  
+> You can find out what default password is assigned to each node kind on the kind's documentation page in the Containerlab [Kinds](https://containerlab.dev/manual/kinds/) documentation page.
+
 ```
 $ ssh clab-denog-workshop-leaf1
 Warning: Permanently added 'clab-denog-workshop-leaf1' (ED25519) to the list of known hosts.
