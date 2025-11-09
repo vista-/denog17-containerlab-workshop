@@ -68,7 +68,7 @@ In order to test and validate your Containerlab installation, you can deploy a "
 The following command clones the provided Git repository, and deploys the Containerlab topology contained within.
 
 ```
-clab deploy –t https://github.com/vista-/clab-helloworld
+clab deploy -t https://github.com/vista-/clab-helloworld
 ```
 
 Once deployed, you should be able to ping from `host1` to `host2`.
