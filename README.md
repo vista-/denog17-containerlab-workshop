@@ -727,9 +727,9 @@ Paths: (1 available, best #1, table default)
 > set / network-instance default interface ethernet-1/1.0
 > set / network-instance default interface ethernet-1/2.0
 > 
-> set / interface lo0 subinterface 0 admin-state enable
-> set / interface lo0 subinterface 0 ipv4 address 10.10.10.1/32
-> set / network-instance default interface lo0.0
+> set / interface system0 subinterface 0 admin-state enable
+> set / interface system0 subinterface 0 ipv4 address 10.10.10.1/32
+> set / network-instance default interface system0.0
 > 
 > set / routing-policy policy export-local statement local-only match protocol local
 > set / routing-policy policy export-local statement local-only action policy-result accept
